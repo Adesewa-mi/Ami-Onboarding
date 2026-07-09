@@ -170,8 +170,8 @@ app().innerHTML=`
 <div class="tonecell"><div class="toneword">á</div><div class="tonelabel">High</div><div class="tonepitch">mi</div></div>
 </div>
 <div class="lesson">
-<p><b>Where tone appears.</b> Tone is not just carried by vowels. It also appears on the syllabic nasal consonants <b>m</b> and <b>n</b> when they form their own syllable, as in <i>m&#768;</i> (I) or <i>n&#768;l&#7909;&#768;</i> (to be big). So when you're listening or reading for tone, watch vowels <i>and</i> these nasal syllables.</p>
-<p><b>How tone changes meaning.</b> Two words can be spelled with the exact same letters and still mean entirely different things, because the tone marks are different. For example: <b>ọkọ</b> (husband), <b>ọkọ̀</b> (vehicle) &mdash; same letters, different tone, different word.</p>
+<p><b>Where tone appears.</b> Tone is not just carried by vowels. It also appears on the syllabic nasal consonants <b>m</b> and <b>n</b> when they form their own syllable. So when you're listening or reading for tone, watch vowels <i>and</i> these nasal syllables.</p>
+<p><b>How tone changes meaning.</b> Two words can be spelled with the same letters and still mean entirely different things, because the tone marks are different. For example: <b>ọkọ</b> (husband), <b>ọkọ̀</b> (vehicle); same letters, different tone, different word.</p>
 <p><b>Minimal pairs.</b> A pair of words like that, identical except for one tone (or one vowel-quality dot), is called a <b>minimal pair</b>. That's exactly what this game trains you to notice: the smallest difference that changes meaning.</p>
 </div>
 <button class="btn" onclick="startStage(1)">Try a quick example →</button>`;
