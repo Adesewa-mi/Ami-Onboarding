@@ -17,14 +17,16 @@ Flow:
      Starts with monosyllabic words, then moves to bisyllabic words
      (mix of nouns, verbs, a couple of adjectives).
 
-NOTE ON THE WORD LIST: only a handful of items are included below as a
-starter set, all drawn from forms already used/verified elsewhere in the
-group's report (fò/fó, ọkọ/ọkọ̀, ogun/ọgún) plus a few well-attested
-common pairs (wá/wà/wa, kan/kán, sun/sún). Getting to ~20 monosyllabic
-items will need native-speaker review before shipping, same caution the
-report itself raises in section 6.4 about dataset composition — worth
-pulling from the team's actual verified question bank rather than
-expanding this list unsupervised.
+NOTE ON THE WORD LIST: 9 monosyllabic + 6 bisyllabic items are included
+below (not yet 20 each). Every item is drawn from forms already used/
+verified elsewhere in the group's report (fò/fó, ọkọ/ọkọ̀, ogun/ọgún) or
+cross-checked against academic/dictionary sources (wá/wà/wa, kan/kán,
+pa/pá, owó/òwò). I deliberately stopped short of fabricating pairs I
+couldn't verify — wrong tone marks would actively mislead the very
+beginners this page is meant to help, and the report itself raises this
+exact caution in section 6.4 about dataset composition. To reach ~20/20,
+pull words straight from the team's verified 49-item question bank, or
+have a native speaker check any additions before they ship.
 
 Author: Popoola Adesewa
 Course: CLN 733 — Language Sound Systems, Group 3
@@ -74,7 +76,7 @@ GUESS1_MONO = [
     {
         "id": "g1_2",
         "bare": "wa",
-        "picture": None,
+        "picture": "🌍",
         "gloss": "to exist / to be (somewhere)",
         "class": "verb",
         "options": [
@@ -114,7 +116,7 @@ GUESS1_MONO = [
     {
         "id": "g1_5",
         "bare": "kan",
-        "picture": None,
+        "picture": "1️⃣",
         "gloss": "one / a certain (amount)",
         "class": "adjective",
         "options": [
@@ -126,16 +128,56 @@ GUESS1_MONO = [
     },
     {
         "id": "g1_6",
-        "bare": "sun",
-        "picture": "😴",
-        "gloss": "to sleep",
+        "bare": "kan",
+        "picture": "⏰",
+        "gloss": "to be urgent / tight",
+        "class": "adjective",
+        "options": [
+            {"form": "kan", "tone": "Mid"},
+            {"form": "kán", "tone": "High"},
+        ],
+        "correct": "kán",
+        "explanation": "kán is High and means 'to be urgent/tight'. kan is Mid and means 'one/a certain'.",
+    },
+    {
+        "id": "g1_7",
+        "bare": "wa",
+        "picture": "👥",
+        "gloss": "our",
+        "class": "pronoun",
+        "options": [
+            {"form": "wá", "tone": "High"},
+            {"form": "wà", "tone": "Low"},
+            {"form": "wa", "tone": "Mid"},
+        ],
+        "correct": "wa",
+        "explanation": "wa is Mid and means 'our'. wá (High) means 'to come'. wà (Low) means 'to exist/be'.",
+    },
+    {
+        "id": "g1_8",
+        "bare": "pa",
+        "picture": "⚔️",
+        "gloss": "to kill",
         "class": "verb",
         "options": [
-            {"form": "sun", "tone": "Mid"},
-            {"form": "sún", "tone": "High"},
+            {"form": "pa", "tone": "Mid"},
+            {"form": "pá", "tone": "High"},
         ],
-        "correct": "sun",
-        "explanation": "sun is Mid and means 'to sleep'. sún is High and means 'to push/move closer'.",
+        "correct": "pa",
+        "explanation": "pa is Mid and means 'to kill'. pá is High and means 'bald'.",
+    },
+    {
+        "id": "g1_9",
+        "bare": "pa",
+        "picture": "👨‍🦲",
+        "gloss": "bald",
+        "class": "adjective",
+        "options": [
+            {"form": "pa", "tone": "Mid"},
+            {"form": "pá", "tone": "High"},
+        ],
+        "correct": "pá",
+        "explanation": "pá is High and means 'bald'. pa is Mid and means 'to kill'.",
     },
 ]
 
@@ -191,6 +233,32 @@ GUESS2_BI = [
         ],
         "correct": "ọgún",
         "explanation": "ọgún (Mid-High, with the dotted ọ) means 'twenty'. ogun (Mid-Mid) means 'war'.",
+    },
+    {
+        "id": "g2_5",
+        "bare": "owo",
+        "picture": "💰",
+        "gloss": "money",
+        "class": "noun",
+        "options": [
+            {"form": "owó", "tone": "High-High"},
+            {"form": "òwò", "tone": "Low-Low"},
+        ],
+        "correct": "owó",
+        "explanation": "owó (High-High) means 'money'. òwò (Low-Low) means 'trade/business'.",
+    },
+    {
+        "id": "g2_6",
+        "bare": "owo",
+        "picture": "🏪",
+        "gloss": "trade / business",
+        "class": "noun",
+        "options": [
+            {"form": "owó", "tone": "High-High"},
+            {"form": "òwò", "tone": "Low-Low"},
+        ],
+        "correct": "òwò",
+        "explanation": "òwò (Low-Low) means 'trade/business'. owó (High-High) means 'money'.",
     },
 ]
 
