@@ -329,7 +329,8 @@ function checkLevel(){
 app().innerHTML=`
 <div class="h2">Are you new to Yorùbá?</div>
 <button class="btn" onclick="introTones()">Yes, I'm new</button>
-<button class="btn ghost" onclick="doneOnboarding()">No, take me to the game</button>`;
+<button class="btn ghost" onclick="doneOnboarding()">No, I am not new</button>
+<button class="btn ghost" onclick="titlePage()">← Back</button>`;
 }
 
 // ---------- Tone intro ----------
@@ -350,7 +351,8 @@ app().innerHTML=`
 <p><b>How tone changes meaning.</b> Two words can be spelled with the same letters and mean entirely different things, because the tone marks are different. For example: <b>ọkọ</b> (husband), <b>ọkọ̀</b> (vehicle) &mdash; same letters, different tone, different word.</p>
 <p><b>Minimal pairs.</b> A pair of words like that, identical except for one tone (or one vowel-quality dot), is called a <b>minimal pair</b>. That's exactly what you're about to practise spotting.</p>
 </div>
-<button class="btn" onclick="startStage(1)">Guess the Tone →</button>`;
+<button class="btn" onclick="startStage(1)">Guess the Tone →</button>
+<button class="btn ghost" onclick="checkLevel()">← Back</button>`;
 }
 
 // ---------- Guess the Tone stages ----------
@@ -376,10 +378,13 @@ return `<div class="${c}" data-f="${opt.form}"><div class="word">${opt.form}</di
 let feed="";
 if(q._answered){
 const ok=q._picked===q.correct;
-feed=`<div class="feed ${ok?'good':'bad'}">${ok?'\u2713 Correct. ':'\u2717 Not quite. The answer is <b>'+q.correct+'</b>. '}${q.explanation}</div>
-<button class="btn" onclick="nextItem(${stageNum})">${(si===N-1)?'Continue':'Next'} →</button>`;
+feed=`<div class="feed ${ok?'good':'bad'}">${ok?'\u2713 Correct. ':'\u2717 Not quite. The answer is <b>'+q.correct+'</b>. '}${q.explanation}</div>`;
 }
 const pic = q.picture ? `<div class="promptpic">${q.picture}</div>` : "";
+const nav = `<div class="row">
+<button class="btn ghost" onclick="prevItem(${stageNum})">← Previous</button>
+<button class="btn ghost" onclick="nextItem(${stageNum})" ${q._answered?'':'disabled'}>${(si===N-1)?'Continue':'Next'} →</button>
+</div>`;
 app().innerHTML=`
 <div class="meta"><span>${label} &middot; ${si+1} of ${N}</span></div>
 <div class="bar"><i style="width:${(si+1)/N*100}%"></i></div>
@@ -390,13 +395,26 @@ ${pic}
 <div class="promptclass">${q.class}</div>
 </div>
 <div class="opts">${q.options.map(card).join("")}</div>
-${feed}`;
+${feed}
+${nav}`;
 if(!q._answered){
 app().querySelectorAll(".card").forEach(c=>c.onclick=()=>{
 q._answered=true; q._picked=c.dataset.f;
 if(c.dataset.f===q.correct) points+=PTS;
 playItem(stageNum);
 });
+}
+}
+
+function prevItem(stageNum){
+if(si>0){
+si--;
+playItem(stageNum);
+} else if(stageNum===2){
+stage=G1; si=G1.length-1;
+playItem(1);
+} else {
+introTones();
 }
 }
 
@@ -417,12 +435,16 @@ app().innerHTML=`
 <div class="promptcard">Score: <b>${points} points</b> across ${total} words.
 <br><span class="muted">You've practised guessing tone on one- and two-syllable words. The main game moves into full sentences next.</span></div>
 <button class="btn" onclick="doneOnboarding()">Enter the main game →</button>
-<button class="btn ghost" onclick="titlePage()">↺ Restart</button>`;
+<div class="row">
+<button class="btn ghost" onclick="stage=G2; si=G2.length-1; playItem(2);">← Previous</button>
+<button class="btn ghost" onclick="titlePage()">↺ Restart</button>
+</div>`;
 }
 
 function doneOnboarding(){
 app().innerHTML=`<div class="h2">Handoff point</div>
 <div class="lesson">This is where onboarding ends and the main Àmì game's <code>home()</code> screen takes over.</div>
+<button class="btn ghost" onclick="stage.length? stageComplete() : checkLevel();">← Back</button>
 <button class="btn ghost" onclick="titlePage()">↺ Back to start</button>`;
 }
 
