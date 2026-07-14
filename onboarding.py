@@ -57,124 +57,124 @@ st.markdown("""
 
 GUESS1_MONO = [
     {
-        "id": "g1_1",
-        "bare": "wa",
-        "picture": "🚶➡️",
-        "gloss": "to come",
-        "class": "verb",
-        "options": [
-            {"form": "wá", "tone": "High"},
-            {"form": "wà", "tone": "Low"},
-            {"form": "wa", "tone": "Mid"},
-        ],
-        "correct": "wá",
-        "explanation": "wá is High and means 'to come'. wà is Low and means 'to exist/be'. wa is Mid and means 'our'. Three different words, same letters.",
+        "id": "g1_1", "bare": "fo", "picture": "🧼", "gloss": "to wash", "class": "verb",
+        "options": [{"form": "fọ̀", "tone": "Low"}, {"form": "fọ́", "tone": "High"}],
+        "correct": "fọ̀",
+        "explanation": "fọ̀ is Low and means 'to wash'. fọ́ is High and means 'to break'.",
     },
     {
-        "id": "g1_2",
-        "bare": "wa",
-        "picture": "🌍",
-        "gloss": "to exist / to be (somewhere)",
-        "class": "verb",
-        "options": [
-            {"form": "wá", "tone": "High"},
-            {"form": "wà", "tone": "Low"},
-            {"form": "wa", "tone": "Mid"},
-        ],
-        "correct": "wà",
-        "explanation": "wà is Low and means 'to exist/be'. wá (High) means 'to come'. wa (Mid) means 'our'.",
+        "id": "g1_2", "bare": "fo", "picture": "🔨", "gloss": "to break", "class": "verb",
+        "options": [{"form": "fọ̀", "tone": "Low"}, {"form": "fọ́", "tone": "High"}],
+        "correct": "fọ́",
+        "explanation": "fọ́ is High and means 'to break'. fọ̀ is Low and means 'to wash'.",
     },
     {
-        "id": "g1_3",
-        "bare": "fo",
-        "picture": "🐦",
-        "gloss": "flew",
-        "class": "verb",
-        "options": [
-            {"form": "fò", "tone": "Low"},
-            {"form": "fó", "tone": "High"},
-        ],
-        "correct": "fò",
-        "explanation": "fò is Low and means 'flew'. fó is High and means 'broke'. Same spelling without the mark, opposite tone, different word.",
+        "id": "g1_3", "bare": "ra", "picture": "🐌", "gloss": "to crawl / vanish", "class": "verb",
+        "options": [{"form": "ra", "tone": "Mid"}, {"form": "rà", "tone": "Low"}],
+        "correct": "ra",
+        "explanation": "ra is Mid and means 'to crawl/vanish'. rà is Low and means 'rotten'.",
     },
     {
-        "id": "g1_4",
-        "bare": "fo",
-        "picture": "💔",
-        "gloss": "broke",
-        "class": "verb",
-        "options": [
-            {"form": "fò", "tone": "Low"},
-            {"form": "fó", "tone": "High"},
-        ],
-        "correct": "fó",
-        "explanation": "fó is High and means 'broke'. fò is Low and means 'flew'.",
+        "id": "g1_4", "bare": "ra", "picture": "🤢", "gloss": "rotten", "class": "adjective",
+        "options": [{"form": "ra", "tone": "Mid"}, {"form": "rà", "tone": "Low"}],
+        "correct": "rà",
+        "explanation": "rà is Low and means 'rotten'. ra is Mid and means 'to crawl/vanish'.",
     },
     {
-        "id": "g1_5",
-        "bare": "kan",
-        "picture": "1️⃣",
-        "gloss": "one / a certain (amount)",
-        "class": "adjective",
-        "options": [
-            {"form": "kan", "tone": "Mid"},
-            {"form": "kán", "tone": "High"},
-        ],
-        "correct": "kan",
-        "explanation": "kan is Mid and means 'one/a certain'. kán is High and means 'to be urgent/tight'.",
+        "id": "g1_5", "bare": "gun", "picture": "🥣", "gloss": "to pound", "class": "verb",
+        "options": [{"form": "gún", "tone": "High"}, {"form": "gùn", "tone": "Low"}],
+        "correct": "gún",
+        "explanation": "gún is High and means 'to pound'. gùn is Low and means 'to climb'.",
     },
     {
-        "id": "g1_6",
-        "bare": "kan",
-        "picture": "⏰",
-        "gloss": "to be urgent / tight",
-        "class": "adjective",
-        "options": [
-            {"form": "kan", "tone": "Mid"},
-            {"form": "kán", "tone": "High"},
-        ],
-        "correct": "kán",
-        "explanation": "kán is High and means 'to be urgent/tight'. kan is Mid and means 'one/a certain'.",
+        "id": "g1_6", "bare": "gun", "picture": "🧗", "gloss": "to climb", "class": "verb",
+        "options": [{"form": "gún", "tone": "High"}, {"form": "gùn", "tone": "Low"}],
+        "correct": "gùn",
+        "explanation": "gùn is Low and means 'to climb'. gún is High and means 'to pound'.",
     },
     {
-        "id": "g1_7",
-        "bare": "wa",
-        "picture": "👥",
-        "gloss": "our",
-        "class": "pronoun",
-        "options": [
-            {"form": "wá", "tone": "High"},
-            {"form": "wà", "tone": "Low"},
-            {"form": "wa", "tone": "Mid"},
-        ],
-        "correct": "wa",
-        "explanation": "wa is Mid and means 'our'. wá (High) means 'to come'. wà (Low) means 'to exist/be'.",
+        "id": "g1_7", "bare": "so", "picture": "👀", "gloss": "to watch over something", "class": "verb",
+        "options": [{"form": "sọ́", "tone": "High"}, {"form": "sọ", "tone": "Mid"}],
+        "correct": "sọ́",
+        "explanation": "sọ́ is High and means 'to watch over something'. sọ is Mid and means 'to say something'.",
     },
     {
-        "id": "g1_8",
-        "bare": "pa",
-        "picture": "⚔️",
-        "gloss": "to kill",
-        "class": "verb",
-        "options": [
-            {"form": "pa", "tone": "Mid"},
-            {"form": "pá", "tone": "High"},
-        ],
-        "correct": "pa",
-        "explanation": "pa is Mid and means 'to kill'. pá is High and means 'bald'.",
+        "id": "g1_8", "bare": "so", "picture": "🗣️", "gloss": "to say something", "class": "verb",
+        "options": [{"form": "sọ́", "tone": "High"}, {"form": "sọ", "tone": "Mid"}],
+        "correct": "sọ",
+        "explanation": "sọ is Mid and means 'to say something'. sọ́ is High and means 'to watch over something'.",
     },
     {
-        "id": "g1_9",
-        "bare": "pa",
-        "picture": "👨‍🦲",
-        "gloss": "bald",
-        "class": "adjective",
-        "options": [
-            {"form": "pa", "tone": "Mid"},
-            {"form": "pá", "tone": "High"},
-        ],
-        "correct": "pá",
-        "explanation": "pá is High and means 'bald'. pa is Mid and means 'to kill'.",
+        "id": "g1_9", "bare": "mu", "picture": "✋", "gloss": "to take", "class": "verb",
+        "options": [{"form": "mú", "tone": "High"}, {"form": "mu", "tone": "Mid"}],
+        "correct": "mú",
+        "explanation": "mú is High and means 'to take'. mu is Mid and means 'to drink'.",
+    },
+    {
+        "id": "g1_10", "bare": "mu", "picture": "🥤", "gloss": "to drink", "class": "verb",
+        "options": [{"form": "mú", "tone": "High"}, {"form": "mu", "tone": "Mid"}],
+        "correct": "mu",
+        "explanation": "mu is Mid and means 'to drink'. mú is High and means 'to take'.",
+    },
+    {
+        "id": "g1_11", "bare": "ya", "picture": "📄", "gloss": "to tear", "class": "verb",
+        "options": [{"form": "ya", "tone": "Mid"}, {"form": "yá", "tone": "High"}],
+        "correct": "ya",
+        "explanation": "ya is Mid and means 'to tear'. yá is High and means 'to borrow'.",
+    },
+    {
+        "id": "g1_12", "bare": "ya", "picture": "📚", "gloss": "to borrow", "class": "verb",
+        "options": [{"form": "ya", "tone": "Mid"}, {"form": "yá", "tone": "High"}],
+        "correct": "yá",
+        "explanation": "yá is High and means 'to borrow'. ya is Mid and means 'to tear'.",
+    },
+    {
+        "id": "g1_13", "bare": "lo", "picture": "🚶", "gloss": "to go", "class": "verb",
+        "options": [{"form": "lọ", "tone": "Mid"}, {"form": "lọ́", "tone": "High"}],
+        "correct": "lọ",
+        "explanation": "lọ is Mid and means 'to go'. lọ́ is High and means 'to twist'.",
+    },
+    {
+        "id": "g1_14", "bare": "lo", "picture": "🌀", "gloss": "to twist", "class": "verb",
+        "options": [{"form": "lọ", "tone": "Mid"}, {"form": "lọ́", "tone": "High"}],
+        "correct": "lọ́",
+        "explanation": "lọ́ is High and means 'to twist'. lọ is Mid and means 'to go'.",
+    },
+    {
+        "id": "g1_15", "bare": "ja", "picture": "✂️", "gloss": "to cut", "class": "verb",
+        "options": [{"form": "já", "tone": "High"}, {"form": "jà", "tone": "Low"}],
+        "correct": "já",
+        "explanation": "já is High and means 'to cut'. jà is Low and means 'to fight'.",
+    },
+    {
+        "id": "g1_16", "bare": "ja", "picture": "🥊", "gloss": "to fight", "class": "verb",
+        "options": [{"form": "já", "tone": "High"}, {"form": "jà", "tone": "Low"}],
+        "correct": "jà",
+        "explanation": "jà is Low and means 'to fight'. já is High and means 'to cut'.",
+    },
+    {
+        "id": "g1_17", "bare": "fe", "picture": "↔️", "gloss": "wide", "class": "adjective",
+        "options": [{"form": "fẹ̀", "tone": "Low"}, {"form": "fẹ́", "tone": "High"}],
+        "correct": "fẹ̀",
+        "explanation": "fẹ̀ is Low and means 'wide'. fẹ́ is High and means 'to want'.",
+    },
+    {
+        "id": "g1_18", "bare": "fe", "picture": "❤️", "gloss": "to want", "class": "verb",
+        "options": [{"form": "fẹ̀", "tone": "Low"}, {"form": "fẹ́", "tone": "High"}],
+        "correct": "fẹ́",
+        "explanation": "fẹ́ is High and means 'to want'. fẹ̀ is Low and means 'wide'.",
+    },
+    {
+        "id": "g1_19", "bare": "sun", "picture": "😴", "gloss": "to sleep", "class": "verb",
+        "options": [{"form": "sùn", "tone": "Low"}, {"form": "sún", "tone": "High"}],
+        "correct": "sùn",
+        "explanation": "sùn is Low and means 'to sleep'. sún is High and means 'to push'.",
+    },
+    {
+        "id": "g1_20", "bare": "sun", "picture": "👉", "gloss": "to push", "class": "verb",
+        "options": [{"form": "sùn", "tone": "Low"}, {"form": "sún", "tone": "High"}],
+        "correct": "sún",
+        "explanation": "sún is High and means 'to push'. sùn is Low and means 'to sleep'.",
     },
 ]
 
@@ -213,10 +213,10 @@ GUESS2_BI = [
         "class": "noun",
         "options": [
             {"form": "ogun", "tone": "Mid-Mid"},
-            {"form": "ọgún", "tone": "Mid-High"},
+            {"form": "ogún", "tone": "Mid-High"},
         ],
         "correct": "ogun",
-        "explanation": "ogun (Mid-Mid) means 'war'. ọgún (Mid-High) means 'twenty' — note it also has the vowel-quality dot under the o, not just a different tone.",
+        "explanation": "ogun (Mid-Mid) means 'war'. ogún (Mid-High) means 'twenty'.",
     },
     {
         "id": "g2_4",
@@ -226,10 +226,10 @@ GUESS2_BI = [
         "class": "noun",
         "options": [
             {"form": "ogun", "tone": "Mid-Mid"},
-            {"form": "ọgún", "tone": "Mid-High"},
+            {"form": "ogún", "tone": "Mid-High"},
         ],
-        "correct": "ọgún",
-        "explanation": "ọgún (Mid-High, with the dotted ọ) means 'twenty'. ogun (Mid-Mid) means 'war'.",
+        "correct": "ogún",
+        "explanation": "ogún (Mid-High) means 'twenty'. ogun (Mid-Mid) means 'war'.",
     },
     {
         "id": "g2_5",
@@ -519,7 +519,7 @@ font-weight:700;border-radius:10px;padding:13px;font-size:1rem;margin-top:10px;}
 <script>
 const NAME="__NAME__", PTS=__PTS__, ROUND=__ROUND__;
 const G1=__G1__, G2=__G2__;
-let stage=[], si=0, points=0, correctCount=0, seenG2=new Set();
+let stage=[], si=0, points=0, correctCount=0, seenG1=new Set(), seenG2=new Set();
 const app=()=>document.getElementById("app");
 
 function shuffle(a){for(let k=a.length-1;k>0;k--){const j=Math.random()*(k+1)|0;[a[k],a[j]]=[a[j],a[k]];}return a;}
@@ -572,14 +572,17 @@ app().innerHTML=`
 // ---------- Levels ----------
 function startStage(n){
 if(n===1){
-stage=G1; si=0; points=0; correctCount=0;
+let un=G1.filter(q=>!seenG1.has(q.id));
+if(un.length<ROUND){ seenG1=new Set(); un=[...G1]; }
+stage=sample(un,ROUND);
+stage.forEach(q=>seenG1.add(q.id));
 } else {
 let un=G2.filter(q=>!seenG2.has(q.id));
 if(un.length<ROUND){ seenG2=new Set(); un=[...G2]; }
 stage=sample(un,ROUND);
 stage.forEach(q=>seenG2.add(q.id));
-si=0; points=0; correctCount=0;
 }
+si=0; points=0; correctCount=0;
 stage.forEach(q=>{q._answered=false;q._picked=null;});
 playItem(n);
 }
@@ -650,10 +653,10 @@ playItem(stageNum);
 }
 
 function level1Complete(){
-const pct=Math.round(100*correctCount/G1.length);
+const pct=Math.round(100*correctCount/stage.length);
 app().innerHTML=`
 <div class="h2">Level 1 complete</div>
-<div class="promptcard">${correctCount} / ${G1.length} correct
+<div class="promptcard">${correctCount} / ${stage.length} correct
 <br><span class="muted">${levelMessage(pct)}</span></div>
 <button class="btn" onclick="startStage(2)">Level 2 →</button>
 <button class="btn ghost" onclick="prevItem(1)">← Previous</button>`;
