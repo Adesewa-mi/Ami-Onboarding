@@ -655,7 +655,7 @@ app().innerHTML=`
 <div class="h2">Level 1 complete</div>
 <div class="promptcard">${correctCount} / ${G1.length} correct
 <br><span class="muted">${levelMessage(pct)}</span></div>
-<button class="btn" onclick="startStage(2)">Level Up →</button>
+<button class="btn" onclick="startStage(2)">Level 2 →</button>
 <button class="btn ghost" onclick="prevItem(1)">← Previous</button>`;
 }
 
@@ -665,7 +665,7 @@ app().innerHTML=`
 <div class="h2">Level 2 complete</div>
 <div class="promptcard">${correctCount} / ${stage.length} correct
 <br><span class="muted">${levelMessage(pct)}</span></div>
-<button class="btn" onclick="doneOnboarding()">Level Up →</button>
+<button class="btn" onclick="doneOnboarding()">Level 3 →</button>
 <div class="row">
 <button class="btn ghost" onclick="playItem(2)">← Previous</button>
 <button class="btn ghost" onclick="titlePage()">↺ Restart</button>
