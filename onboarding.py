@@ -70,13 +70,13 @@ GUESS1_MONO = [
     },
     {
         "id": "g1_3", "bare": "ra", "picture": "🐌", "gloss": "to crawl / vanish", "class": "verb",
-        "options": [{"form": "ra", "tone": "Mid"}, {"form": "rà", "tone": "Low"}],
+        "options": [{"form": "rá", "tone": "High"}, {"form": "rà", "tone": "Low"}],
         "correct": "ra",
-        "explanation": "ra is Mid and means 'to crawl/vanish'. rà is Low and means 'rotten'.",
+        "explanation": "rá is High and means 'to crawl/vanish'. rà is Low and means 'rotten'.",
     },
     {
         "id": "g1_4", "bare": "ra", "picture": "🤢", "gloss": "rotten", "class": "adjective",
-        "options": [{"form": "ra", "tone": "Mid"}, {"form": "rà", "tone": "Low"}],
+        "options": [{"form": "rá", "tone": "High"}, {"form": "rà", "tone": "Low"}],
         "correct": "rà",
         "explanation": "rà is Low and means 'rotten'. ra is Mid and means 'to crawl/vanish'.",
     },
