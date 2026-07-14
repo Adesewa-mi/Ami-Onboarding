@@ -17,16 +17,12 @@ Flow:
      Starts with monosyllabic words, then moves to bisyllabic words
      (mix of nouns, verbs, a couple of adjectives).
 
-NOTE ON THE WORD LIST: 9 monosyllabic + 6 bisyllabic items are included
-below (not yet 20 each). Every item is drawn from forms already used/
-verified elsewhere in the group's report (fò/fó, ọkọ/ọkọ̀, ogun/ọgún) or
-cross-checked against academic/dictionary sources (wá/wà/wa, kan/kán,
-pa/pá, owó/òwò). I deliberately stopped short of fabricating pairs I
-couldn't verify — wrong tone marks would actively mislead the very
-beginners this page is meant to help, and the report itself raises this
-exact caution in section 6.4 about dataset composition. To reach ~20/20,
-pull words straight from the team's verified 49-item question bank, or
-have a native speaker check any additions before they ship.
+NOTE ON THE WORD LIST: monosyllabic (Level 1) has 9 starter items pending
+the team's verified list. Bisyllabic (Level 2) now has 11 pairs / 22
+items, all from the team's own data — two pairs (ọkọ/ọkọ̀, owó/òwò) were
+already in this file and matched exactly, which is a good sign. Level 2
+now draws a random round of 10 questions per playthrough, same as the
+main app.
 
 Author: Popoola Adesewa
 Course: CLN 733 — Language Sound Systems, Group 3
@@ -39,6 +35,7 @@ import streamlit.components.v1 as components
 # ---- settings you can edit -------------------------------------------------
 GAME_NAME = "Àmì"
 POINTS_CORRECT = 10
+ROUND_SIZE = 10
 # ---------------------------------------------------------------------------
 
 st.set_page_config(page_title=f"{GAME_NAME} — Getting Started", page_icon="🎵", layout="centered")
@@ -260,6 +257,214 @@ GUESS2_BI = [
         "correct": "òwò",
         "explanation": "òwò (Low-Low) means 'trade/business'. owó (High-High) means 'money'.",
     },
+    {
+        "id": "g2_7",
+        "bare": "pade",
+        "picture": "🤝",
+        "gloss": "to meet",
+        "class": "verb",
+        "options": [
+            {"form": "pàdé", "tone": "Low-High"},
+            {"form": "padé", "tone": "Mid-High"},
+        ],
+        "correct": "pàdé",
+        "explanation": "pàdé (Low-High) means 'to meet'. padé (Mid-High) means 'close/near'.",
+    },
+    {
+        "id": "g2_8",
+        "bare": "pade",
+        "picture": "🚪",
+        "gloss": "close / near",
+        "class": "adjective",
+        "options": [
+            {"form": "pàdé", "tone": "Low-High"},
+            {"form": "padé", "tone": "Mid-High"},
+        ],
+        "correct": "padé",
+        "explanation": "padé (Mid-High) means 'close/near'. pàdé (Low-High) means 'to meet'.",
+    },
+    {
+        "id": "g2_9",
+        "bare": "iya",
+        "picture": "👩",
+        "gloss": "mother",
+        "class": "noun",
+        "options": [
+            {"form": "ìyá", "tone": "Low-High"},
+            {"form": "ìyà", "tone": "Low-Low"},
+        ],
+        "correct": "ìyá",
+        "explanation": "ìyá (Low-High) means 'mother'. ìyà (Low-Low) means 'suffering'.",
+    },
+    {
+        "id": "g2_10",
+        "bare": "iya",
+        "picture": "😢",
+        "gloss": "suffering",
+        "class": "noun",
+        "options": [
+            {"form": "ìyá", "tone": "Low-High"},
+            {"form": "ìyà", "tone": "Low-Low"},
+        ],
+        "correct": "ìyà",
+        "explanation": "ìyà (Low-Low) means 'suffering'. ìyá (Low-High) means 'mother'.",
+    },
+    {
+        "id": "g2_11",
+        "bare": "igba",
+        "picture": "🥣",
+        "gloss": "calabash",
+        "class": "noun",
+        "options": [
+            {"form": "igbá", "tone": "Mid-High"},
+            {"form": "igba", "tone": "Mid-Mid"},
+        ],
+        "correct": "igbá",
+        "explanation": "igbá (Mid-High) means 'calabash'. igba (Mid-Mid) means 'two hundred'.",
+    },
+    {
+        "id": "g2_12",
+        "bare": "igba",
+        "picture": "2️⃣0️⃣0️⃣",
+        "gloss": "two hundred",
+        "class": "noun",
+        "options": [
+            {"form": "igbá", "tone": "Mid-High"},
+            {"form": "igba", "tone": "Mid-Mid"},
+        ],
+        "correct": "igba",
+        "explanation": "igba (Mid-Mid) means 'two hundred'. igbá (Mid-High) means 'calabash'.",
+    },
+    {
+        "id": "g2_13",
+        "bare": "igba",
+        "picture": "⏳",
+        "gloss": "time",
+        "class": "noun",
+        "options": [
+            {"form": "ìgbà", "tone": "Low-Low"},
+            {"form": "ìgbá", "tone": "Low-High"},
+        ],
+        "correct": "ìgbà",
+        "explanation": "ìgbà (Low-Low) means 'time'. ìgbá (Low-High) means 'garden eggs'.",
+    },
+    {
+        "id": "g2_14",
+        "bare": "igba",
+        "picture": "🍆",
+        "gloss": "garden eggs",
+        "class": "noun",
+        "options": [
+            {"form": "ìgbà", "tone": "Low-Low"},
+            {"form": "ìgbá", "tone": "Low-High"},
+        ],
+        "correct": "ìgbá",
+        "explanation": "ìgbá (Low-High) means 'garden eggs'. ìgbà (Low-Low) means 'time'.",
+    },
+    {
+        "id": "g2_15",
+        "bare": "oko",
+        "picture": "🪨",
+        "gloss": "stone",
+        "class": "noun",
+        "options": [
+            {"form": "òkò", "tone": "Low-Mid"},
+            {"form": "oko", "tone": "Mid-Mid"},
+        ],
+        "correct": "òkò",
+        "explanation": "òkò (Low-Mid) means 'stone'. oko (Mid-Mid) means 'farm'.",
+    },
+    {
+        "id": "g2_16",
+        "bare": "oko",
+        "picture": "🌾",
+        "gloss": "farm",
+        "class": "noun",
+        "options": [
+            {"form": "òkò", "tone": "Low-Mid"},
+            {"form": "oko", "tone": "Mid-Mid"},
+        ],
+        "correct": "oko",
+        "explanation": "oko (Mid-Mid) means 'farm'. òkò (Low-Mid) means 'stone'.",
+    },
+    {
+        "id": "g2_17",
+        "bare": "aja",
+        "picture": "🐕",
+        "gloss": "dog",
+        "class": "noun",
+        "options": [
+            {"form": "ajá", "tone": "Mid-High"},
+            {"form": "àjà", "tone": "Low-Low"},
+        ],
+        "correct": "ajá",
+        "explanation": "ajá (Mid-High) means 'dog'. àjà (Low-Low) means 'roof'.",
+    },
+    {
+        "id": "g2_18",
+        "bare": "aja",
+        "picture": "🏠",
+        "gloss": "roof",
+        "class": "noun",
+        "options": [
+            {"form": "ajá", "tone": "Mid-High"},
+            {"form": "àjà", "tone": "Low-Low"},
+        ],
+        "correct": "àjà",
+        "explanation": "àjà (Low-Low) means 'roof'. ajá (Mid-High) means 'dog'.",
+    },
+    {
+        "id": "g2_19",
+        "bare": "ewa",
+        "picture": "🫘",
+        "gloss": "beans",
+        "class": "noun",
+        "options": [
+            {"form": "ẹ̀wà", "tone": "Low-Low"},
+            {"form": "ẹwà", "tone": "Mid-Low"},
+        ],
+        "correct": "ẹ̀wà",
+        "explanation": "ẹ̀wà (Low-Low) means 'beans'. ẹwà (Mid-Low) means 'beauty'.",
+    },
+    {
+        "id": "g2_20",
+        "bare": "ewa",
+        "picture": "✨",
+        "gloss": "beauty",
+        "class": "noun",
+        "options": [
+            {"form": "ẹ̀wà", "tone": "Low-Low"},
+            {"form": "ẹwà", "tone": "Mid-Low"},
+        ],
+        "correct": "ẹwà",
+        "explanation": "ẹwà (Mid-Low) means 'beauty'. ẹ̀wà (Low-Low) means 'beans'.",
+    },
+    {
+        "id": "g2_21",
+        "bare": "eko",
+        "picture": "📚",
+        "gloss": "education",
+        "class": "noun",
+        "options": [
+            {"form": "ẹ̀kọ́", "tone": "Low-High"},
+            {"form": "ẹ̀kọ", "tone": "Low-Mid"},
+        ],
+        "correct": "ẹ̀kọ́",
+        "explanation": "ẹ̀kọ́ (Low-High) means 'education'. ẹ̀kọ (Low-Mid) means 'pap'.",
+    },
+    {
+        "id": "g2_22",
+        "bare": "eko",
+        "picture": "🍲",
+        "gloss": "pap",
+        "class": "noun",
+        "options": [
+            {"form": "ẹ̀kọ́", "tone": "Low-High"},
+            {"form": "ẹ̀kọ", "tone": "Low-Mid"},
+        ],
+        "correct": "ẹ̀kọ",
+        "explanation": "ẹ̀kọ (Low-Mid) means 'pap'. ẹ̀kọ́ (Low-High) means 'education'.",
+    },
 ]
 
 GAME_HTML = r'''<!doctype html><html lang="en"><head><meta charset="utf-8">
@@ -312,10 +517,19 @@ font-weight:700;border-radius:10px;padding:13px;font-size:1rem;margin-top:10px;}
 .feed.bad{background:#fbeef0;border-left:5px solid var(--bad);color:#7c2531;}
 </style></head><body><div class="wrap"><div id="app"></div></div>
 <script>
-const NAME="__NAME__", PTS=__PTS__;
+const NAME="__NAME__", PTS=__PTS__, ROUND=__ROUND__;
 const G1=__G1__, G2=__G2__;
-let stage=[], si=0, points=0;
+let stage=[], si=0, points=0, correctCount=0, seenG2=new Set();
 const app=()=>document.getElementById("app");
+
+function shuffle(a){for(let k=a.length-1;k>0;k--){const j=Math.random()*(k+1)|0;[a[k],a[j]]=[a[j],a[k]];}return a;}
+function sample(a,n){return shuffle([...a]).slice(0,n);}
+
+function levelMessage(pct){
+if(pct>=80) return "🪶 You've Earned Your Wings — your ear for tone is sharp.";
+if(pct>=50) return "Nice progress — a little more practice and it'll click.";
+return "Tone takes practice. Feel free to try this level again.";
+}
 
 // ---------- Page 1: title only ----------
 function titlePage(){
@@ -351,21 +565,28 @@ app().innerHTML=`
 <p><b>How tone changes meaning.</b> Two words can be spelled with the same letters and mean entirely different things, because the tone marks are different. For example: <b>ọkọ</b> (husband), <b>ọkọ̀</b> (vehicle) &mdash; same letters, different tone, different word.</p>
 <p><b>Minimal pairs.</b> A pair of words like that, identical except for one tone (or one vowel-quality dot), is called a <b>minimal pair</b>. That's exactly what you're about to practise spotting.</p>
 </div>
-<button class="btn" onclick="startStage(1)">Guess the Tone →</button>
+<button class="btn" onclick="startStage(1)">Start Level 1 →</button>
 <button class="btn ghost" onclick="checkLevel()">← Back</button>`;
 }
 
-// ---------- Guess the Tone stages ----------
+// ---------- Levels ----------
 function startStage(n){
-stage = n===1 ? G1 : G2;
-si=0;
-if(n===1) points=0;
+if(n===1){
+stage=G1; si=0; points=0; correctCount=0;
+} else {
+let un=G2.filter(q=>!seenG2.has(q.id));
+if(un.length<ROUND){ seenG2=new Set(); un=[...G2]; }
+stage=sample(un,ROUND);
+stage.forEach(q=>seenG2.add(q.id));
+si=0; points=0; correctCount=0;
+}
+stage.forEach(q=>{q._answered=false;q._picked=null;});
 playItem(n);
 }
 
 function playItem(stageNum){
 const q=stage[si], N=stage.length;
-const label = stageNum===1 ? "GUESS THE TONE · ONE SYLLABLE" : "GUESS THE TONE · TWO SYLLABLES";
+const label = stageNum===1 ? "LEVEL 1 · GUESS THE TONE" : "LEVEL 2 · GUESS THE TONE";
 function card(opt){
 let c="card";
 if(q._answered){
@@ -400,7 +621,7 @@ ${nav}`;
 if(!q._answered){
 app().querySelectorAll(".card").forEach(c=>c.onclick=()=>{
 q._answered=true; q._picked=c.dataset.f;
-if(c.dataset.f===q.correct) points+=PTS;
+if(c.dataset.f===q.correct){ points+=PTS; correctCount++; }
 playItem(stageNum);
 });
 }
@@ -421,44 +642,52 @@ introTones();
 function nextItem(stageNum){
 si++;
 if(si>=stage.length){
-if(stageNum===1){ startStage(2); }
-else { stageComplete(); }
+if(stageNum===1){ level1Complete(); }
+else { level2Complete(); }
 } else {
 playItem(stageNum);
 }
 }
 
-function stageComplete(){
-const total = G1.length + G2.length;
+function level1Complete(){
+const pct=Math.round(100*correctCount/G1.length);
 app().innerHTML=`
-<div class="h2">You're ready 🎉</div>
-<div class="promptcard">Score: <b>${points} points</b> across ${total} words.
-<br><span class="muted">You've practised guessing tone on one- and two-syllable words. The main game moves into full sentences next.</span></div>
-<button class="btn" onclick="doneOnboarding()">Enter the main game →</button>
+<div class="h2">Level 1 complete</div>
+<div class="promptcard">${correctCount} / ${G1.length} correct
+<br><span class="muted">${levelMessage(pct)}</span></div>
+<button class="btn" onclick="startStage(2)">Level Up →</button>
+<button class="btn ghost" onclick="prevItem(1)">← Previous</button>`;
+}
+
+function level2Complete(){
+const pct=Math.round(100*correctCount/stage.length);
+app().innerHTML=`
+<div class="h2">Level 2 complete</div>
+<div class="promptcard">${correctCount} / ${stage.length} correct
+<br><span class="muted">${levelMessage(pct)}</span></div>
+<button class="btn" onclick="doneOnboarding()">Level Up →</button>
 <div class="row">
-<button class="btn ghost" onclick="stage=G2; si=G2.length-1; playItem(2);">← Previous</button>
+<button class="btn ghost" onclick="playItem(2)">← Previous</button>
 <button class="btn ghost" onclick="titlePage()">↺ Restart</button>
 </div>`;
 }
 
 function doneOnboarding(){
-app().innerHTML=`<div class="h2">Handoff point</div>
-<div class="lesson">This is where onboarding ends and the main Àmì game's <code>home()</code> screen takes over.</div>
-<button class="btn ghost" onclick="stage.length? stageComplete() : checkLevel();">← Back</button>
+app().innerHTML=`<div class="h2">Level 3: Àmì</div>
+<div class="lesson">This is where the full game begins.</div>
 <button class="btn ghost" onclick="titlePage()">↺ Back to start</button>`;
 }
 
-G1.forEach(q=>{q._answered=false;q._picked=null;});
-G2.forEach(q=>{q._answered=false;q._picked=null;});
-
 window.checkLevel=checkLevel; window.introTones=introTones; window.startStage=startStage;
-window.nextItem=nextItem; window.doneOnboarding=doneOnboarding; window.titlePage=titlePage;
+window.nextItem=nextItem; window.prevItem=prevItem; window.doneOnboarding=doneOnboarding;
+window.titlePage=titlePage; window.level1Complete=level1Complete; window.level2Complete=level2Complete;
 titlePage();
 </script></body></html>'''
 
 html = (GAME_HTML
         .replace("__NAME__", GAME_NAME)
         .replace("__PTS__", str(POINTS_CORRECT))
+        .replace("__ROUND__", str(ROUND_SIZE))
         .replace("__G1__", json.dumps(GUESS1_MONO, ensure_ascii=False))
         .replace("__G2__", json.dumps(GUESS2_BI, ensure_ascii=False)))
 
