@@ -520,10 +520,21 @@ font-weight:700;border-radius:10px;padding:13px;font-size:1rem;margin-top:10px;}
 const NAME="__NAME__", PTS=__PTS__, ROUND=__ROUND__;
 const G1=__G1__, G2=__G2__;
 let stage=[], si=0, points=0, correctCount=0, seenG1=new Set(), seenG2=new Set();
+let missed=[], redoMode=false;
 const app=()=>document.getElementById("app");
 
 function shuffle(a){for(let k=a.length-1;k>0;k--){const j=Math.random()*(k+1)|0;[a[k],a[j]]=[a[j],a[k]];}return a;}
 function sample(a,n){return shuffle([...a]).slice(0,n);}
+function pairKey(q){ return q.options.map(o=>o.form).slice().sort().join('|'); }
+function buildPairs(items){
+const map=new Map();
+items.forEach(q=>{
+const key=pairKey(q);
+if(!map.has(key)) map.set(key,[]);
+map.get(key).push(q);
+});
+return [...map.values()];
+}
 
 function levelMessage(pct){
 if(pct>=80) return "🪶 You've Earned Your Wings — your ear for tone is sharp.";
@@ -571,18 +582,17 @@ app().innerHTML=`
 
 // ---------- Levels ----------
 function startStage(n){
-if(n===1){
-let un=G1.filter(q=>!seenG1.has(q.id));
-if(un.length<ROUND){ seenG1=new Set(); un=[...G1]; }
-stage=sample(un,ROUND);
-stage.forEach(q=>seenG1.add(q.id));
-} else {
-let un=G2.filter(q=>!seenG2.has(q.id));
-if(un.length<ROUND){ seenG2=new Set(); un=[...G2]; }
-stage=sample(un,ROUND);
-stage.forEach(q=>seenG2.add(q.id));
-}
-si=0; points=0; correctCount=0;
+const items = n===1 ? G1 : G2;
+const seenSet = n===1 ? seenG1 : seenG2;
+const pairs = buildPairs(items);
+let unseenPairs = pairs.filter(p=>!seenSet.has(pairKey(p[0])));
+if(unseenPairs.length===0){ seenSet.clear(); unseenPairs=pairs; }
+const roundPairs = sample(unseenPairs, Math.min(ROUND, unseenPairs.length));
+stage = roundPairs.map(group=>{
+seenSet.add(pairKey(group[0]));
+return group[Math.random()*group.length|0];
+});
+si=0; points=0; correctCount=0; missed=[]; redoMode=false;
 stage.forEach(q=>{q._answered=false;q._picked=null;});
 playItem(n);
 }
@@ -624,7 +634,7 @@ ${nav}`;
 if(!q._answered){
 app().querySelectorAll(".card").forEach(c=>c.onclick=()=>{
 q._answered=true; q._picked=c.dataset.f;
-if(c.dataset.f===q.correct){ points+=PTS; correctCount++; }
+if(c.dataset.f===q.correct){ points+=PTS; correctCount++; } else { missed.push(q); }
 playItem(stageNum);
 });
 }
@@ -645,30 +655,62 @@ introTones();
 function nextItem(stageNum){
 si++;
 if(si>=stage.length){
-if(stageNum===1){ level1Complete(); }
+if(redoMode){ redoComplete(stageNum); }
+else if(stageNum===1){ level1Complete(); }
 else { level2Complete(); }
 } else {
 playItem(stageNum);
 }
 }
 
+function redoMissed(stageNum){
+if(missed.length===0) return;
+stage=[...missed];
+missed=[];
+si=0; correctCount=0; points=0; redoMode=true;
+stage.forEach(q=>{q._answered=false;q._picked=null;});
+playItem(stageNum);
+}
+
+function redoComplete(stageNum){
+const total=stage.length;
+const nextLabel = stageNum===1 ? "Level 2 →" : "Level 3 →";
+const nextFn = stageNum===1 ? "startStage(2)" : "doneOnboarding()";
+const redoBtn = missed.length>0
+? `<button class="btn ghost" onclick="redoMissed(${stageNum})">↺ Redo missed (${missed.length})</button>`
+: "";
+app().innerHTML=`
+<div class="h2">Redo results</div>
+<div class="promptcard">${correctCount} / ${total} correct this time.</div>
+<button class="btn" onclick="${nextFn}">${nextLabel}</button>
+${redoBtn}`;
+}
+
 function level1Complete(){
 const pct=Math.round(100*correctCount/stage.length);
+const redoBtn = missed.length>0
+? `<button class="btn ghost" onclick="redoMissed(1)">↺ Redo missed (${missed.length})</button>`
+: "";
 app().innerHTML=`
 <div class="h2">Level 1 complete</div>
 <div class="promptcard">${correctCount} / ${stage.length} correct
 <br><span class="muted">${levelMessage(pct)}</span></div>
 <button class="btn" onclick="startStage(2)">Level 2 →</button>
+${redoBtn}
 <button class="btn ghost" onclick="prevItem(1)">← Previous</button>`;
 }
 
 function level2Complete(){
 const pct=Math.round(100*correctCount/stage.length);
+const redoBtn = missed.length>0
+? `<button class="btn ghost" onclick="redoMissed(2)">↺ Redo missed (${missed.length})</button>`
+: "";
 app().innerHTML=`
 <div class="h2">Level 2 complete</div>
 <div class="promptcard">${correctCount} / ${stage.length} correct
 <br><span class="muted">${levelMessage(pct)}</span></div>
 <button class="btn" onclick="doneOnboarding()">Level 3 →</button>
+${redoBtn}
 <div class="row">
 <button class="btn ghost" onclick="playItem(2)">← Previous</button>
 <button class="btn ghost" onclick="titlePage()">↺ Restart</button>
@@ -684,6 +726,7 @@ app().innerHTML=`<div class="h2">Level 3: Àmì</div>
 window.checkLevel=checkLevel; window.introTones=introTones; window.startStage=startStage;
 window.nextItem=nextItem; window.prevItem=prevItem; window.doneOnboarding=doneOnboarding;
 window.titlePage=titlePage; window.level1Complete=level1Complete; window.level2Complete=level2Complete;
+window.redoMissed=redoMissed; window.redoComplete=redoComplete;
 titlePage();
 </script></body></html>'''
 
