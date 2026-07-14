@@ -71,7 +71,7 @@ GUESS1_MONO = [
     {
         "id": "g1_3", "bare": "ra", "picture": "🐌", "gloss": "to crawl / vanish", "class": "verb",
         "options": [{"form": "rá", "tone": "High"}, {"form": "rà", "tone": "Low"}],
-        "correct": "ra",
+        "correct": "rá",
         "explanation": "rá is High and means 'to crawl/vanish'. rà is Low and means 'rotten'.",
     },
     {
